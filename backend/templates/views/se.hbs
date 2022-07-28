@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}
+    <title>Questions</title>
+    <style>
+      :root {
+                        --three-dimensions-card-left-side-width: 1rem;
+                    }
+
+                    .three-dimensions-card {
+                        position: relative;
+                    }
+
+                    /* The left side */
+                    .three-dimensions-card::before {
+                        background: rgba(0, 0, 0, 0.3);
+                        content: '';
+
+                        /* Position */
+                        top: var(--three-dimensions-card-left-side-width);
+                        left: 0px;
+                        position: absolute;
+                        transform: translate(-100%, 0) skewY(-45deg);
+                        transform-origin: left top;
+
+                        /* Size */
+                        height: 100%;
+                        width: var(--three-dimensions-card-left-side-width);
+                    }
+
+                    /* The bottom side */
+                    .three-dimensions-card::after {
+                        background: rgba(0, 0, 0, 0.3);
+                        content: '';
+
+                        /* Position */
+                        bottom: 0px;
+                        left: 0px;
+                        position: absolute;
+                        transform: translate(0, 100%) skewX(-45deg);
+                        transform-origin: left top;
+
+                        /* Size */
+                        height: var(--three-dimensions-card-left-side-width);
+                        width: 100%;
+                    }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <a href="/home" class="previous navbar-brand">&laquo; Previous</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <div class="quiz-container three-dimensions-card" style="color: black;" id="quiz">
+        <div class="quiz-header">
+          <h2 id="question">Question Text</h2>
+          <ul>
+            <li>
+              <input type="radio" name="answer" id="a" class="answer">
+              <label for="a" id="a_text">Answer</label>
+            </li>
+    
+            <li>
+              <input type="radio" name="answer" id="b" class="answer">
+              <label for="b" id="b_text">Answer</label>
+            </li>
+    
+            <li>
+              <input type="radio" name="answer" id="c" class="answer">
+              <label for="c" id="c_text">Answer</label>
+            </li>
+    
+            <li>
+              <input type="radio" name="answer" id="d" class="answer">
+              <label for="d" id="d_text">Answer</label>
+            </li>
+    
+          </ul>
+        </div>
+    
+        <button id="submit">Next</button>
+    
+      </div>
+      <script>
+        const quizData = [
+    {
+        question: "Software is defined as ___________",
+        a: "set of programs, documentation & configuration of data",
+        b: "set of programs",
+        c: "documentation and configuration of data",
+        d: "None of the mentioned",
+        correct: "a",
+    },
+    {
+        question: "What is Software Engineering?",
+        a: "Designing a software",
+        b: "Testing a software",
+        c: "Application of engineering principles to the design",
+        d: "None of the above",
+        correct: "c",
+    },
+    {
+        question: "Who is the father of Software Engineering?",
+        a: "Margaret Hamilton",
+        b: "Watts S. Humphrey",
+        c: "Alan Turing",
+        d: "Boris Beizer",
+        correct: "b",
+    },
+    {
+        question: "Model selection is based on __________.",
+        a: "Requirements",
+        b: "Development team & users",
+        c: "Project type & associated risk",
+        d: "All of the Above",
+        correct: "d",
+    },
+];
+
+const quiz= document.getElementById('quiz')
+const answerEls = document.querySelectorAll('.answer')
+const questionEl = document.getElementById('question')
+const a_text = document.getElementById('a_text')
+const b_text = document.getElementById('b_text')
+const c_text = document.getElementById('c_text')
+const d_text = document.getElementById('d_text')
+const submitBtn = document.getElementById('submit')
+const sub= document.getElementById('sub')
+
+
+let currentQuiz = 0
+let score = 0
+loadQuiz()
+
+
+function loadQuiz() {
+
+    deselectAnswers()
+
+    const currentQuizData = quizData[currentQuiz]
+
+    questionEl.innerText = currentQuizData.question
+    a_text.innerText = currentQuizData.a
+    b_text.innerText = currentQuizData.b
+    c_text.innerText = currentQuizData.c
+    d_text.innerText = currentQuizData.d
+}
+
+function deselectAnswers() {
+    answerEls.forEach(answerEl => answerEl.checked = false)
+}
+
+function getSelected() {
+    let answer
+    answerEls.forEach(answerEl => {
+        if(answerEl.checked) {
+            answer = answerEl.id
+        }
+    })
+    return answer
+}
+
+
+submitBtn.addEventListener('click', () => {
+    const answer = getSelected()
+    if(answer) {
+       if(answer === quizData[currentQuiz].correct) {
+           score++
+       }
+
+       currentQuiz++
+
+       if(currentQuiz < quizData.length) {
+           loadQuiz()
+       }
+       else if(score == quizData.length){
+            quiz.innerHTML = `
+           <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+
+           <button onclick="location.reload()">Well Done</button>
+           <button > <a href="/home" style="color:green; font-weight:bold;" >Go to the Dashboard</a></button>
+           `
+       } else {
+           quiz.innerHTML = `
+           <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+
+           <button onclick="location.reload()">Appear once again </button>
+           <button > <a href="/home" style="color:green; font-weight:bold;" >Go to the Dashboard</a></button>
+           `
+       }
+    }
+})
+      </script>
+</body>
+</html>

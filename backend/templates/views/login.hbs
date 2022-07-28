@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+    body {font-family: Arial, Helvetica, sans-serif;
+    margin-left: 30%;
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7f7 100%);
+	
+    margin-right:30%;}
+
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+button:hover {
+    opacity:1;
+}
+.fa{height: 0px;
+width:0px;}
+
+
+.signupbtn{
+    padding: 14px 20px;
+    color: white;
+    opacity: 0.9;
+    border: none;
+    cursor: pointer;
+    background-color: #4CAF50;
+    padding: 14px 20px;
+    margin: 8px 0;
+    width: 100%;
+    
+}
+
+.signupbtn {
+  width: 100%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 30px;
+}
+.containe {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 16px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 16px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+</style>
+<body>
+
+<form action="/login" style="border:1px solid #ccc" method="POST">
+    <div class="container">
+        <h1>Login</h1>
+        <hr>
+        <label for="email"><b>Email</b></label>
+        <input type="text"  placeholder="Email" name="email" size="30" maxlength ="20" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Password" name="password" size="30" maxlength="8" required> 
+
+        <input class="button signupbtn" type="Submit" value="Login">
+        <br>
+    </div>
+</form>
+
+</body>
+</html>
+
+
+

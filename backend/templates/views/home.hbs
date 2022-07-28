@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}
+    <title>Home Page</title>  
+    <style type = "text/css" >
+
+  body{
+    padding: 70px;
+    color: #F3F3F3;
+            background-image: url("http://localhost:3000/images/backquiz.jpg");
+            {{!-- background-color: #cccccc; --}}
+        }
+body .card {
+  background-color: #FFFCDF;
+}
+
+body .navbar{
+    padding: 0.1rem;
+}
+.navbar-brand{
+  padding-left: 10px;
+}
+
+body .topnav-right a{
+  color: #bec3ca;
+  float: left;
+  text-align: center;
+  padding: .5rem .5rem;
+  padding-right: 25px;
+  text-decoration: none;
+}
+
+.navbar-text {
+  padding-left: 20px;
+}
+
+  .card-deck{
+    padding: 30px
+  }
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+</head>
+<body style="overflow: scroll;">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+   <a class="navbar-brand" href="/">
+    <img src="https://thumbs.dreamstime.com/b/quiz-logo-icon-vector-symbol-flat-cartoon-bubble-speeches-question-check-mark-signs-as-competition-game-interview-160701701.jpg" 
+    width="30" height="30" class="d-inline-block align-top" alt="">
+    <b>Quizzer </b>
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" style="padding-left: 10px">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">Home </a>
+      </li>
+      
+    </ul>
+      <div class="topnav-right"> 
+        <li class="nav-item">
+                    <a class="nav-link" href="/logout">Log Out</a>
+                </li>
+    </div>
+  </div>
+</nav>
+
+  <div class="contain">
+    <label for="sem" style="color: black;"><b>Semester</b></label>
+    <select class="form-select" aria-label="Default select example">
+                    
+                    <option value="1">1st</option>
+                    <option value="2">2nd</option>
+                    <option value="3">3rd</option>
+                    <option value="4">4th</option>
+                    <option value="5">5th</option>
+                    <option value="6" selected>6th</option>
+                  </select>
+        {{!-- <input type="text"  placeholder="Email" name="email" size="30" maxlength ="20" required> --}}
+    <label for="sub" style="color: black;"><b>SUBJECT</b></label>
+    <div class="container">
+<div class="card-deck">
+  <div class="card">
+    <a href="/ml"><img class="card-img-top" src="http://localhost:3000/images/ml.jpg" ></a>
+    <div class="card-body">
+      <h5 class="card-title">Machine Learning </h5>
+      <p class="card-text">Learning by doing.</p>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <div class="card">
+    <a href="/ai"><img class="card-img-top" src="http://localhost:3000/images/ai.png" alt="Card image cap"></a>
+    <div class="card-body">
+      <h5 class="card-title">AI</h5>
+      <p class="card-text">Think and Learn</p>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  
+</div>
+
+<div class="card-deck">
+  <div class="card">
+    <a href="/se"><img class="card-img-top" src="http://localhost:3000/images/se.jpg" alt="Card image cap"></a>
+    <div class="card-body">
+      <h5 class="card-title">Software Engineering</h5>
+      <p class="card-text">Build models</p>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <div class="card">
+    <a href="/flat"><img class="card-img-top" src="http://localhost:3000/images/flat.png" alt="Card image cap"></a>
+    <div class="card-body">
+      <h5 class="card-title">Formal Automata</h5>
+      <p class="card-text">Design and Compile</p>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+  </div>
+
+</body>
+</html>
+

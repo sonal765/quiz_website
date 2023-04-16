@@ -131,11 +131,11 @@ app.post("/login",async(req,res)=>{
             expires:new Date(Date.now()+600000),
             httpOnly:true,
         });
-        res.status(201).render("index");
+        // res.status(201).render("index");
 
         if(userEmail.password === password){
         // if(isMatch){
-            res.status(201).render("index");
+            res.status(201).render("home");
         }else{
             res.send("Invalid login Details");
         }
